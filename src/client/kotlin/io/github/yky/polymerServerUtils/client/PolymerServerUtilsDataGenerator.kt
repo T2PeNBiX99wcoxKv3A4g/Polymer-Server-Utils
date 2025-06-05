@@ -19,10 +19,11 @@ class PolymerServerUtilsDataGenerator : DataGeneratorEntrypoint {
 
         // Recipes
         pack.addProvider(::ModRecipeProvider)
-        
+
         // Tag
         pack.addProvider(::EntityTypeTagProvider)
-        
+        pack.addProvider(::ItemTagProvider)
+
         // Loot Table
         pack.addProvider(::ModEntityLootTableProvider)
     }

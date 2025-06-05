@@ -5,6 +5,7 @@ import io.github.yky.polymerServerUtils.item.Items
 import net.minecraft.entity.EntityStatuses
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
+import net.minecraft.entity.mob.BlazeEntity
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.particle.ItemStackParticleEffect
@@ -50,7 +51,9 @@ class SuperSnowballEntity : ThrownItemEntity, PolymerEntity {
         if (world !is ServerWorld) return
         val serverWorld = world as ServerWorld
         val entity = entityHitResult.entity
-        entity.damage(serverWorld, damageSources.thrown(this, owner), 5f)
+        var damage = 5f
+        if (entity is BlazeEntity) damage *= 2
+        entity.damage(serverWorld, damageSources.thrown(this, owner), damage)
     }
 
     override fun onCollision(hitResult: HitResult) {
