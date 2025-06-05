@@ -38,7 +38,6 @@ import net.minecraft.world.event.GameEvent
 import xyz.nucleoid.packettweaker.PacketContext
 import java.util.*
 import kotlin.math.max
-import kotlin.math.sqrt
 
 class SuperSnowGolemEntity(entityType: EntityType<out SuperSnowGolemEntity?>, world: World?) :
     GolemEntity(entityType, world), Shearable, RangedAttackMob, PolymerEntity, Angerable {
@@ -87,15 +86,15 @@ class SuperSnowGolemEntity(entityType: EntityType<out SuperSnowGolemEntity?>, wo
 
     override fun shootAt(target: LivingEntity, pullProgress: Float) {
         val d = target.x - x
-        val e = target.eyeY - 1.1f
+        val e = target.eyeY
         val f = target.z - z
-        val g = sqrt(d * d + f * f) * 0.2f
+//        val g = sqrt(d * d + f * f) * 0.2f
         if (world is ServerWorld) {
             val serverWorld = world as ServerWorld
             val itemStack = ItemStack(Items.SNOWBALL)
             ProjectileEntity.spawn(
                 SuperSnowballEntity(serverWorld, this, itemStack), serverWorld, itemStack
-            ) { entity -> entity.setVelocity(d, e + g - entity.y, f, 2.6f, 0.0f) }
+            ) { entity -> entity.setVelocity(d, e - entity.y, f, 2.6f, 0.0f) }
         }
 
         playSound(SoundEvents.ENTITY_SNOW_GOLEM_SHOOT, 1.0f, 0.4f / (getRandom().nextFloat() * 0.4f + 0.8f))

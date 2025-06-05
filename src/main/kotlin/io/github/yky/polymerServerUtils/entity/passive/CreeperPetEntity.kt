@@ -1,7 +1,6 @@
 package io.github.yky.polymerServerUtils.entity.passive
 
 import eu.pb4.polymer.core.api.entity.PolymerEntity
-import io.github.yky.polymerServerUtils.Utils
 import io.github.yky.polymerServerUtils.entity.EntityTypes
 import io.github.yky.polymerServerUtils.entity.ai.goal.CreeperPetIgniteGoal
 import net.minecraft.component.DataComponentTypes
@@ -22,7 +21,6 @@ import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.registry.tag.ItemTags
-import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.sound.SoundEvent
 import net.minecraft.sound.SoundEvents
@@ -353,14 +351,5 @@ class CreeperPetEntity(entityType: EntityType<out CreeperPetEntity>, world: Worl
      */
     override fun getPolymerEntityType(context: PacketContext?): EntityType<*> {
         return EntityType.CREEPER
-    }
-
-    override fun modifyRawTrackedData(
-        data: MutableList<DataTracker.SerializedEntry<*>>?, player: ServerPlayerEntity?, initial: Boolean
-    ) {
-        data?.forEach {
-            Utils.Logger.debug("{} {} {} {} {}", FUSE_SPEED.id, CHARGED.id, IGNITED.id, TAMEABLE_FLAGS.id, OWNER_UUID.id)
-            Utils.Logger.debug("id {} value {} handler {}", it.id, it.value, it.handler)
-        }
     }
 }
