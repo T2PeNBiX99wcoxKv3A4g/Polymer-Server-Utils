@@ -1,6 +1,10 @@
 {
+  "entity.polymer-server-utils.super_snow_golem": "超級雪人",
+  "entity.polymer-server-utils.super_snowball": "超級雪球",
   "item-group.polymer-server-utils.item-group": "Polymer 伺服器雜項",
   "item.polymer-server-utils.cooked_carrot": "烤胡蘿蔔",
   "item.polymer-server-utils.cooked_rotten_flesh": "烤腐肉",
-  "item.polymer-server-utils.hah": "哈?"
+  "item.polymer-server-utils.hah": "哈?",
+  "item.polymer-server-utils.super_snow_golem_spawner": "超級雪人生成器",
+  "item.polymer-server-utils.super_snowball": "超級雪球"
 }

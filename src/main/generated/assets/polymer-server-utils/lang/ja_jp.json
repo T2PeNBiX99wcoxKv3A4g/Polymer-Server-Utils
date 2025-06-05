@@ -1,6 +1,10 @@
 {
+  "entity.polymer-server-utils.super_snow_golem": "スーパースノウゴーレム",
+  "entity.polymer-server-utils.super_snowball": "スーパー雪玉",
   "item-group.polymer-server-utils.item-group": "Polymerサーバーのもの",
   "item.polymer-server-utils.cooked_carrot": "焼きニンジン",
   "item.polymer-server-utils.cooked_rotten_flesh": "焼き腐った肉",
-  "item.polymer-server-utils.hah": "は？"
+  "item.polymer-server-utils.hah": "は？",
+  "item.polymer-server-utils.super_snow_golem_spawner": "スーパースノウゴーレムのスポナー",
+  "item.polymer-server-utils.super_snowball": "スーパー雪玉"
 }
