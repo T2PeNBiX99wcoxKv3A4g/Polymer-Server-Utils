@@ -64,6 +64,7 @@ class SuperSnowGolemEntity(entityType: EntityType<out SuperSnowGolemEntity?>, wo
     private var angryAt: UUID? = null
 
     override fun initGoals() {
+        goalSelector.add(1, SwimGoal(this))
         goalSelector.add(1, MeleeAttackGoal(this, 1.0, true))
         goalSelector.add(1, ProjectileAttackGoal(this, 1.5, 5, 80.0f))
         goalSelector.add(2, WanderAroundFarGoal(this, 1.0, 1.0000001E-5f))
