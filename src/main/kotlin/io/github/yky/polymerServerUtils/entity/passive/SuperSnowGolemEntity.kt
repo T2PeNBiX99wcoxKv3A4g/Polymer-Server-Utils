@@ -73,7 +73,6 @@ class SuperSnowGolemEntity(entityType: EntityType<out SuperSnowGolemEntity?>, wo
         goalSelector.add(4, LookAtEntityGoal(this, PlayerEntity::class.java, 6.0f))
         goalSelector.add(5, LookAroundGoal(this))
         targetSelector.add(1, RevengeGoal(this))
-        targetSelector.add(2, ActiveTargetGoal(this, PlayerEntity::class.java, 10, true, false, ::shouldAngerAt))
         targetSelector.add(
             2, ActiveTargetGoal(
                 this, MobEntity::class.java, 10, true, false
