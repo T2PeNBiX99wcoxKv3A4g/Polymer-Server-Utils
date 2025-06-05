@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "polymer-server-utils",
+  "version": "${version}",
+  "name": "Polymer-Server-Utils",
+  "description": "Polymer Server Utils",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/polymer-server-utils/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "io.github.yky.polymerServerUtils.client.PolymerServerUtilsDataGenerator"
+    ],
+    "client": [
+      "io.github.yky.polymerServerUtils.client.PolymerServerUtilsClient"
+    ],
+    "main": [
+      "io.github.yky.polymerServerUtils.PolymerServerUtils"
+    ]
+  },
+  "mixins": [
+    "polymer-server-utils.mixins.json",
+    {
+      "config": "polymer-server-utils.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-language-kotlin": ">=${kotlin_loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

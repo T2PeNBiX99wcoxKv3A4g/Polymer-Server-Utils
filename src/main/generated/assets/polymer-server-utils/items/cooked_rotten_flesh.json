@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "polymer-server-utils:item/cooked_rotten_flesh"
+  }
+}

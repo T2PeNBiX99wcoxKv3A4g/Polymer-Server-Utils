@@ -1,0 +1,10 @@
+{
+  "entity.polymer-server-utils.super_snow_golem": "Super Snow Golem",
+  "entity.polymer-server-utils.super_snowball": "Super Snowball",
+  "item-group.polymer-server-utils.item-group": "Polymer Server Utils",
+  "item.polymer-server-utils.cooked_carrot": "Cooked Carrot",
+  "item.polymer-server-utils.cooked_rotten_flesh": "Cooked Rotten Flesh",
+  "item.polymer-server-utils.hah": "HAH?",
+  "item.polymer-server-utils.super_snow_golem_spawner": "Super Snow Golem Spawner",
+  "item.polymer-server-utils.super_snowball": "Super Snowball"
+}

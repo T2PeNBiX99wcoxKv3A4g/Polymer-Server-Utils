@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.yky.polymerServerUtils.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "EndermanEntityMixin",
+    "IronGolemEntityMixin",
+    "LivingEntityMixin",
+    "PlayerEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

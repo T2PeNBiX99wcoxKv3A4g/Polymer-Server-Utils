@@ -1,0 +1,114 @@
+name: Pre Release
+
+on:
+  push:
+    branches:
+      - fast
+
+jobs:
+  build:
+    name: Ubuntu Latest Build
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        # Use these Java versions
+        java: [
+          23,    # Current Java LTS
+        ]
+    runs-on: ubuntu-latest
+    outputs:
+      new_tag: ${{ steps.tag_version.outputs.new_tag }}
+      changelog: ${{ steps.tag_version.outputs.changelog }}
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: setup jdk ${{ matrix.java }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: 'oracle'
+
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pre_release_branches: "fast"
+          custom_release_rules: "fix:prerelease,feat:prerelease"
+
+      - name: Clone Python script
+        run: git clone https://github.com/T2PeNBiX99wcoxKv3A4g/Gradle-Workflow-Scripts.git .scripts
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.3'
+          cache: 'pip'
+          cache-dependency-path: "**/.scripts/requirements*.txt"
+
+      - name: Install Dependencies
+        run: pip install -r .scripts/requirements.txt
+
+      - name: Change version in `gradle.properties`
+        run: python .scripts/change_version.py ${{ steps.tag_version.outputs.new_tag }}
+
+      - name: Remove `.scripts`
+        run: rm -rf .scripts
+
+      - name: Set git user
+        uses: fregante/setup-git-user@v2
+
+      - name: Check for changes
+        run: git status
+
+      - name: Stage changed files
+        run: git add *
+
+      - name: Commit changed files
+        run: "git commit -m 'Action: Update version in `gradle.properties`'"
+      
+      #      - name: Set remote url
+      #        run: git remote set-url origin https://T2PeNBiX99wcoxKv3A4g:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+
+      - name: Fetch from fast
+        run: git fetch origin fast
+
+      - name: Push code to fast
+        run: git push origin fast
+
+      - name: make gradle wrapper executable
+        run: chmod +x ./gradlew
+
+      - name: build
+        run: ./gradlew build
+
+      - name: capture build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Artifacts
+          path: build/libs/
+  
+  upload:
+    name: Create Pre Release
+    permissions:
+      contents: write
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v4
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "Artifacts/*.jar"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ needs.build.outputs.new_tag }}
+          name: Pre Release 1.21.5 ${{ needs.build.outputs.new_tag }}
+          body: ${{ needs.build.outputs.changelog }}
+          prerelease: true
