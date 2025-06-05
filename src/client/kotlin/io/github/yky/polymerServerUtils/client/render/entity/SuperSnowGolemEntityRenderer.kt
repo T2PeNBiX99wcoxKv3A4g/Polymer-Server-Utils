@@ -1,4 +1,4 @@
-package io.github.yky.polymerServerUtils.client.render.enttity
+package io.github.yky.polymerServerUtils.client.render.entity
 
 import io.github.yky.polymerServerUtils.entity.passive.SuperSnowGolemEntity
 import net.fabricmc.api.EnvType

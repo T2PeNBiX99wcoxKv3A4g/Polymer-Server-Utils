@@ -11,6 +11,10 @@ abstract class ModLanguageProvider(
     protected val languageCode: String,
     registryLookup: CompletableFuture<RegistryWrapper.WrapperLookup>
 ) : FabricLanguageProvider(dataOutput, languageCode, registryLookup) {
+    protected open val cooked = "Cooked"
+    protected open val spawnEgg = "Spawn Egg"
+    protected open val snowBall = "Super Snowball"
+    
     protected fun existingLanguageFilePath() =
         dataOutput.modContainer.findPath("assets/polymer-server-utils/lang_gen/${languageCode}.existing.json").get()
 }

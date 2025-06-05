@@ -22,5 +22,8 @@ class PolymerServerUtilsDataGenerator : DataGeneratorEntrypoint {
         
         // Tag
         pack.addProvider(::EntityTypeTagProvider)
+        
+        // Loot Table
+        pack.addProvider(::ModEntityLootTableProvider)
     }
 }

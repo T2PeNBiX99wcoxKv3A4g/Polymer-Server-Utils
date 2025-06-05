@@ -2,6 +2,7 @@ package io.github.yky.polymerServerUtils.item
 
 import io.github.yky.polymerServerUtils.component.FoodComponents
 import io.github.yky.polymerServerUtils.data.ItemData
+import io.github.yky.polymerServerUtils.entity.EntityTypes
 import io.github.yky.polymerServerUtils.ex.toModId
 import net.minecraft.component.type.AttributeModifierSlot
 import net.minecraft.component.type.AttributeModifiersComponent
@@ -27,7 +28,7 @@ enum class Items(itemData: ItemData) {
     }),
     SUPER_SNOWBALL(
         register(
-            "super_snowball", Settings()
+            "super_snowball", Settings().maxCount(16)
         ) { settings, _ -> SuperSnowballItem(settings) }),
     HAH(
         register(
@@ -45,8 +46,18 @@ enum class Items(itemData: ItemData) {
         ) { settings, _ -> HahItem(settings) }),
     SUPER_SNOW_GOLEM_SPAWNER(
         register(
-            "super_snow_golem_spawner", Settings().fireproof()
-        ) { settings, _ -> SuperSnowGolemSpawnerItem(settings) });
+            "super_snow_golem_spawner", Settings().fireproof().maxCount(16)
+        ) { settings, _ -> SuperSnowGolemSpawnerItem(settings) }),
+    SUPER_SNOW_GOLEM_SPAWN_EGG(register("super_snow_golem_spawn_egg") { settings, _ ->
+        SpawnEggPolymerItem(
+            EntityTypes.SUPER_SNOW_GOLEM, settings, MCItems.SNOW_GOLEM_SPAWN_EGG
+        )
+    }),
+    CREEPER_PET_SPAWN_EGG(register("creeper_pet_spawn_egg") { settings, _ ->
+        SpawnEggPolymerItem(
+            EntityTypes.CREEPER_PET, settings, MCItems.CREEPER_SPAWN_EGG
+        )
+    });
 
     val item: Item = itemData.item
 
@@ -61,3 +72,5 @@ private fun register(
     settings.registryKey(key)
     return ItemData(Registry.register(Registries.ITEM, id.toModId(), item(settings, id)), key)
 }
+
+private fun register(id: String, item: (settings: Settings, id: String) -> Item) = register(id, Settings(), item)

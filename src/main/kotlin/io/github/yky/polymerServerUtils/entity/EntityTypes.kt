@@ -3,6 +3,7 @@
 package io.github.yky.polymerServerUtils.entity
 
 import eu.pb4.polymer.core.api.entity.PolymerEntityUtils
+import io.github.yky.polymerServerUtils.entity.passive.CreeperPetEntity
 import io.github.yky.polymerServerUtils.entity.passive.SuperSnowGolemEntity
 import io.github.yky.polymerServerUtils.entity.projectile.thrown.SuperSnowballEntity
 import io.github.yky.polymerServerUtils.ex.toModId
@@ -30,6 +31,11 @@ object EntityTypes {
             .maxTrackingRange(4).trackingTickInterval(10)
     )
 
+    val CREEPER_PET: EntityType<CreeperPetEntity> = register(
+        "creeper_pet",
+        EntityType.Builder.create(::CreeperPetEntity, SpawnGroup.MONSTER).dimensions(0.6f, 1.7f).maxTrackingRange(8)
+    )
+
     private fun <T : Entity?> register(key: RegistryKey<EntityType<*>>, type: EntityType.Builder<T>): EntityType<T> {
         val entityType = Registry.register(Registries.ENTITY_TYPE, key, type.build(key))
         PolymerEntityUtils.registerType(entityType)
@@ -41,5 +47,6 @@ object EntityTypes {
 
     internal fun init() {
         FabricDefaultAttributeRegistry.register(SUPER_SNOW_GOLEM, SuperSnowGolemEntity.createSuperSnowGolemAttributes())
+        FabricDefaultAttributeRegistry.register(CREEPER_PET, CreeperPetEntity.createCreeperPetAttributes())
     }
 }
