@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.1.7](https://github.com/T2PeNBiX99wcoxKv3A4g/Polymer-Server-Utils/compare/v0.1.6..v0.1.7) - 2025-10-23
+
+### ⚙️ Miscellaneous Tasks
+
+- *(workflows)* Update changelog output to use `git-cliff2` in release workflows - ([1e13055](https://github.com/T2PeNBiX99wcoxKv3A4g/Polymer-Server-Utils/commit/1e13055304de15019d12df1e9d8d314d39a62b86))
+
+### Action
+
+- Update version in `gradle.properties` - ([339b4f3](https://github.com/T2PeNBiX99wcoxKv3A4g/Polymer-Server-Utils/commit/339b4f3f440a426a66c1a46cd7d8f916a4280ecc))
+
+
 ## [0.1.6](https://github.com/T2PeNBiX99wcoxKv3A4g/Polymer-Server-Utils/compare/v0.1.5..v0.1.6) - 2025-10-23
 
 ### ⚙️ Miscellaneous Tasks
