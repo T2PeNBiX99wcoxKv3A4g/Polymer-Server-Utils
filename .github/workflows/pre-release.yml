@@ -99,9 +99,6 @@ jobs:
 
       - name: Commit changed files
         run: "git commit -m 'Action: Update version in `gradle.properties`'"
-      
-      #      - name: Set remote url
-      #        run: git remote set-url origin https://T2PeNBiX99wcoxKv3A4g:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
 
       - name: Fetch from fast
         run: git fetch origin fast
