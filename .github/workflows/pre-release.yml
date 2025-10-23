@@ -24,7 +24,7 @@ jobs:
     outputs:
       new_tag: ${{ steps.tag_version.outputs.new_tag }}
       new_version: ${{ steps.change_version.outputs.new_version }}
-      changelog: ${{ steps.tag_version.outputs.changelog }}
+      changelog: ${{ steps.git-cliff2.outputs.content }}
     steps:
       - name: Check-out repository
         uses: actions/checkout@v5
