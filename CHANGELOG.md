@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.1.9](https://github.com/T2PeNBiX99wcoxKv3A4g/Polymer-Server-Utils/compare/v0.1.8..v0.1.9) - 2026-01-26
+
+### Action
+
+- Update version in `gradle.properties` - ([b1bdfec](https://github.com/T2PeNBiX99wcoxKv3A4g/Polymer-Server-Utils/commit/b1bdfecd3d2ce116eeb7a1d8130c11cbde5d0f2f))
+
+### Build
+
+- *(deps)* Bump gradle-wrapper from 8.14.1 to 9.3.0 - ([0fbf043](https://github.com/T2PeNBiX99wcoxKv3A4g/Polymer-Server-Utils/commit/0fbf04376d887e7da62db607e3c3160485862f7f))
+
+
 ## [0.1.8](https://github.com/T2PeNBiX99wcoxKv3A4g/Polymer-Server-Utils/compare/v0.1.7..v0.1.8) - 2025-12-16
 
 ### Action
