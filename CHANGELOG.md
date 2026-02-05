@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.1.11](https://github.com/T2PeNBiX99wcoxKv3A4g/Polymer-Server-Utils/compare/v0.1.10..v0.1.11) - 2026-02-05
+
+### Action
+
+- Update version in `gradle.properties` - ([1e072c4](https://github.com/T2PeNBiX99wcoxKv3A4g/Polymer-Server-Utils/commit/1e072c4bdeb9031f4ededbecc04cd245bcdfd630))
+
+### Build
+
+- *(deps)* Bump jvm from 2.3.0 to 2.3.10 - ([6ffcae0](https://github.com/T2PeNBiX99wcoxKv3A4g/Polymer-Server-Utils/commit/6ffcae09f6433ae787c4c39ceff4de8282fd189d))
+
+
 ## [0.1.10](https://github.com/T2PeNBiX99wcoxKv3A4g/Polymer-Server-Utils/compare/v0.1.9..v0.1.10) - 2026-01-31
 
 ### Action
